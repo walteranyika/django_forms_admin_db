@@ -23,6 +23,10 @@ from main_app import views
 
 urlpatterns = [
     path("", views.students, name="home"),
+    path("employees/add", views.employee_add, name="employee.add"),
+    path("employees", views.employees_view, name="employees.view"),
+    path("students", views.students_view, name="students.view"),
+    path("upload-images", views.upload_images, name="upload_images"),
     path('admin/', admin.site.urls),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

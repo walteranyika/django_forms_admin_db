@@ -1,5 +1,7 @@
 from django import forms
 
+from main_app.models import Employee, UploadImages
+
 CHOICES = (("Male", "Male"), ("Female", "Female"))
 
 
@@ -11,3 +13,16 @@ class StudentForm(forms.Form):
     dob = forms.DateField(widget=forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}))
     gender = forms.ChoiceField(choices=CHOICES)
     is_completed = forms.BooleanField(label="Completed?", required=False)
+
+
+class EmployeeForm(forms.ModelForm):
+    class Meta:
+        model = Employee
+        fields = "__all__"  # ('name', 'employment_date', 'salary', 'gender', 'profile',)
+
+
+class UploadImagesForm(forms.ModelForm):
+    class Meta:
+        model = UploadImages
+        fields = "__all__"
+
