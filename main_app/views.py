@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from main_app.app_forms import StudentForm, EmployeeForm, UploadImagesForm
-from main_app.models import Student, UploadImages
+from main_app.models import Student, UploadImages, Employee
 
 
 def students(request):
@@ -47,7 +47,8 @@ def employee_add(request):
 
 
 def employees_view(request):
-    return None
+    employees = Employee.objects.all()
+    return render(request, "employee/show_employees.html", {"employees": employees})
 
 
 def students_view(request):

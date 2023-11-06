@@ -1,0 +1,39 @@
+{% extends "layouts/base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-8 ">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Employment Date</th>
+                        <th>Salary</th>
+                        <th>Gender</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for employee in employees %}
+                        <tr>
+                            <td>{{ employee.id }}</td>
+                            <td>{{ employee.name }}</td>
+                            <td>{{ employee.employment_date }}</td>
+                            <td>{{ employee.salary }}</td>
+                            <td>{{ employee.gender }}</td>
+                        </tr>
+                    {% endfor %}
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
